@@ -1,0 +1,230 @@
+body{
+  font-family: 'Roboto', sans-serif;
+
+}
+
+input{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+select{
+  font-family: sans-serif
+}
+.outer-background{
+    background:#ffffff
+}
+
+.inner-background{
+    background: rgb(255, 255, 255);
+}
+
+.cpadding{
+    margin-top:30px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.background-white{
+    background:White;
+}
+
+select{
+    border:none
+}
+.jumbotron{
+    background:#FF4858
+}
+
+.color-white{
+    color:white !important;
+}
+.row{
+    padding:0px 15px !important;
+
+
+}
+
+.cheadings{
+    color:#FF4858;
+
+}
+
+
+.list{
+    max-height: 300px !important;
+    /* min-height:300px */
+
+    overflow-y: scroll;
+}
+
+
+.add-border{
+    border: 2px #FF4858;
+    border-radius: 6px;
+    border-style: dashed;
+}
+
+.col-lg-5{
+     margin-right:4%;
+}
+
+
+.color-pink{
+    color:#FF4858;
+    padding:12px;
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+
+/* .main-input{
+    width:900px;
+    margin-left:110px;
+} */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 72, 87, 0.582); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF4858; 
+  }
+
+  .not-visible{
+      /* visibility: hidden; */
+      /* visibility: hidden; */
+      
+      display:none;
+  }
+
+.childStyle{
+    color:#04ADBF;font-size:20px;
+}
+
+.spanStyle{
+    font-style:italic;text-align:right;display:block;font-size:14px;
+}
+
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: rgb(255, 67, 83);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  .add-shadow{
+    -webkit-box-shadow: -7px 7px 5px -6px rgba(115,111,115,1);
+    -moz-box-shadow: -7px 7px 5px -6px rgba(115,111,115,1);
+    box-shadow: -7px 7px 5px -6px rgba(115,111,115,1);
+  
+  }
+
+  .input-group .form-control{
+    position:initial
+  }
+
+  .input-group-addon, .input-group-btn{
+    position: sticky;
+  }
+
+  .col-lg-5{
+    margin-bottom:25px
+  }
+
+  .label{
+    position:absolute;
+    right: 15px;
+    color: rgb(255, 67, 83);
+  }
+
+
+ 
+
+  .custom-icon-pink{
+    
+    border: 1px solid rgb(255, 67, 83); 
+    padding-top: 123;
+    padding: 5px 25px;
+    border-radius: 5px;
+    color: rgb(255, 67, 83);
+  }
+
+  .custom-icon-pink:hover{
+  
+    background-color: rgb(255, 67, 83);
+    cursor: pointer;
+    color:white;
+  }
+
+  .custom-icon-blue{
+    
+    border: 1px solid  #2673c8;
+    padding-top: 123;
+    padding: 5px 25px;
+    border-radius: 5px;
+    color: #2673c8;
+  }
+
+  .custom-icon-blue:hover, .custom-icon-blue:active{
+  
+    background-color:  #2673c8;
+    color:white;
+    cursor: pointer;
+  }
+
+
+  .color-icons{
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+
+  .grey{
+    color:grey
+  }
