@@ -15,10 +15,44 @@
     <!--Need to change-->
 
     <script>
+function check(){
+   
+    if(document.querySelector('#expense-list').children.length ==0){
+                document.querySelector('.no-expense').style.display ="block"
+            }
+
+            if(document.querySelector('#income-list').children.length ==0){
+                    document.querySelector('.no-income').style.display ="block"
+                }
+    
+}
+
+        
+
+        
+    function deleteItem(event){
+        event.target.parentNode.classList.add('removeItem')
+
+        setTimeout(()=>{
+            event.target.parentNode.remove()
+        },0500)
+
+      
+
+       
+            
+           
+
+        
+      
+    }
+
+
         function changeColor(value){
                 //  console.log(value);
 
                  var headings = Array.from(document.querySelectorAll('h3'));
+                 var closeButton = document.querySelector('.closeButton')
                 
                  headings.forEach(cur=> 
                  {
@@ -31,6 +65,39 @@
                  Array.from(document.querySelectorAll('.add-border')).forEach(cur=>cur.style.borderColor=value)
                  Array.from(document.querySelectorAll('.cheadings')).forEach(cur=>cur.style.color=value )
 
+              
+                    closeButton.style.color=value;
+                 closeButton.style.borderColor=value;
+                       
+              
+              
+
+               
+                 closeButton.addEventListener('mouseenter',()=>{
+                    closeButton.style.background=value;
+                    closeButton.style.color="white";
+                  
+                    
+                 })
+
+                 closeButton.addEventListener('mouseleave',()=>{
+                    
+                    closeButton.style.color=value;
+                 closeButton.style.borderColor=value;
+                 closeButton.style.background="white";    
+                  
+                    
+                 })
+              
+              
+                
+
+
+
+
+
+                 
+                 
                  document.querySelector('.close').style.color=value;
                 // document.querySelector('.label').style.color=value;
                 // Array.from(document.querySelectorAll('.spanStyle')).forEach(cur=>cur.style.color=value )
@@ -57,6 +124,7 @@
             }
         }
 
+   
     </script>
 </head>
 
@@ -196,8 +264,9 @@
                 <h2 class="text-center cheadings">Income Sources</h2>
                 <br>
                 <br>
+                <h3 class="no-income cheadings" style="margin-left:30px">No Income</h3>
                 <!--need to change-->
-                <ul id="income-list" class="list-group list">
+                <ul id="income-list" class="list-group list" onchange="check()">
 
 
 
@@ -207,6 +276,7 @@
                 <h2 class="text-center cheadings">Expense Sources</h2>
                 <br>
                 <br>
+                <h3 class="no-expense cheadings" style="margin-left:30px">No Expenses</h3>
                 <ul id="expense-list" class="list-group list">
 
 

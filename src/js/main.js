@@ -50,6 +50,7 @@ window.onload = function () {
 
 
 
+
 submit.addEventListener('click', onAddClick);
 myModal.addEventListener('keypress', (e) => {
     e.stopPropagation();
@@ -63,22 +64,35 @@ document.addEventListener('keypress', (e) => {
 })
 
 
-
-
+let k = Math.floor(Math.random() * 1222034)
 //Add event listener to return key 
+
+document.querySelector('.no-expense').style.display ="block"
+document.querySelector('.no-income').style.display ="block"
+
+
 
 function onAddClick() {
 
+
+
+
+  
+  
+    k++;
     var inputValue = checkValidation(input.value);
     document.querySelector(".not-visible").style.display = "block";
     //input value holds the input amount field
 
     if (inputValue !== undefined && inputValue !== '') {
+        document.querySelector('.no-income').style.display ="none"
         document.querySelector(".not-visible").style.display = "none";
         var date = new Date();
 
         var dateString = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() + "&nbsp;".repeat(4) + formatAMPM(date)
-        let childValue = "<li class='list-group-item childStyle'>" + inputValue + "  &#8377" + `<span class="label text-right grey">${inc_or_exp_type.value.charAt(0).toUpperCase() + inc_or_exp_type.value.slice(1)}</span>` + "<span class='spanStyle grey' style='text-align:left'>As on</span>" + "<span class='spanStyle grey' >" + dateString + "</span>" + "</li>";
+        let childValue = "<li " +  "id=" + k + " "+"onclick=deleteItem(event)"  +" &nbsp; class='list-group-item childStyle'>" + inputValue + "  &#8377" + `<span class="label text-right grey">${inc_or_exp_type.value.charAt(0).toUpperCase() + inc_or_exp_type.value.slice(1)}</span>` + "<span class='spanStyle grey' style='text-align:left'>As on</span>" + "<span class='spanStyle grey' >" + dateString + "</span>" + 
+        
+        "<span class='closeButton'>Delete</span> "+"</li>";
 
         if (type.value == "income") {
             //Add element to dom income list
@@ -92,6 +106,7 @@ function onAddClick() {
             input.value = '';
 
         } else {
+            document.querySelector('.no-expense').style.display ="none"
             //Add element to dom expense list
             // let childValue = "<li class='list-group-item'>"+inputValue  +  "<span style='text-align:right;display:block'>"+ ` ${date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() + "&nbsp;".repeat(8) + formatAMPM(date)}`   +"</span>"+ "</li>" ;
             expense_amount = expense_amount + Number(inputValue);
@@ -103,7 +118,12 @@ function onAddClick() {
             input.value = '';
         }
     }
+
+  
 }
+
+           
+
 
 
 

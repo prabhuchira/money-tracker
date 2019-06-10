@@ -51,9 +51,8 @@ select{
 
 
 .list{
-    max-height: 300px !important;
-    /* min-height:300px */
-
+    min-height: 300px !important;
+    max-height:350px;
     overflow-y: scroll;
 }
 
@@ -227,4 +226,34 @@ select{
 
   .grey{
     color:grey
+  }
+
+  .closeButton{
+    display: initial;
+    position: relative;
+    top: -10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #FF4858;
+    padding: 5px 10px;
+    color: #FF4858;
+  }
+
+  
+  .closeButton:hover{
+   
+    background:rgb(158, 158, 158);
+    cursor: pointer;
+    color: white;
+  }
+
+
+  @keyframes something{
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
+  .removeItem{
+    animation-name:something;
+    animation-duration: 1s;
   }
