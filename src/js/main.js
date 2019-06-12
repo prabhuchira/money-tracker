@@ -14,6 +14,8 @@ var inc_or_exp_type = document.getElementById('inc_or_exp_type');
 var income_amount = 0;
 var expense_amount = 0;
 var total_amount = 0;
+var incomes = [];
+var expenses = [];
 
 var modal = document.getElementById("myModal");
 
@@ -22,6 +24,10 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+function getResponse(){
+    console.log('Its working as hell')
+}
 
 // When the user clicks on the button, open the modal 
 function modalDisplay() {
@@ -38,7 +44,7 @@ span.onclick = function () {
 window.onload = function () {
     inc_amount.innerText = 0;
     exp_amount.innerText = 0;
-    modalDisplay();
+    // modalDisplay();
     // total_amount = Number(prompt("Enter total Budget"));
     // tot_budget.innerText  = total_amount; 
     document.getElementById('modal_button').addEventListener('click', () => {
@@ -96,7 +102,7 @@ function onAddClick() {
 
         if (type.value == "income") {
             //Add element to dom income list
-
+            
             // total_amount = total_amount + income_amount;
             income_amount = income_amount + Number(inputValue);
             total_amount = total_amount + Number(inputValue);
@@ -104,7 +110,7 @@ function onAddClick() {
             inc_amount.innerText = income_amount;
             tot_budget.innerText = total_amount;
             input.value = '';
-
+            
         } else {
             document.querySelector('.no-expense').style.display ="none"
             //Add element to dom expense list
@@ -122,9 +128,45 @@ function onAddClick() {
   
 }
 
-           
+var getButton =document.getElementById('getButton')           
+
+getButton.addEventListener('click',startServer);
+
+async function  startServer(){
+    let data = await fetch('http://localhost:4000/save',{
+        method:'GET',   
+        mode:'cors',
+
+        headers:{
+            "Content-type":'application/text'
+        }
+       
+    }).catch(()=>{
+        console.log("not exist");
+        throw new Error("No its")
+    })
+    ;
+    let res = await data.json();
+    console.log(res);
+}
 
 
 
+var postButton =document.getElementById('postButton')           
 
+postButton.addEventListener('click',postSomething);
 
+let drone = {name: 'A US NAVAL AIRFORCE'}
+
+async function postSomething(){
+    let data = await fetch('http://localhost:4000/save',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(drone)
+    })
+
+    let res = await data.json();
+    console.log(res)
+}
