@@ -1,0 +1,37 @@
+[
+  {
+    "type": "income",
+    "input": "5000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "5000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "500",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "500",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "1000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "2000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "income",
+    "input": "2000",
+    "inc_exp_type": "household"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "type": "expense",
+    "input": "3000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "300",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "500",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "500",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "3000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "1000",
+    "inc_exp_type": "household"
+  },
+  {
+    "type": "expense",
+    "input": "2000",
+    "inc_exp_type": "health"
+  }
+]

@@ -15,99 +15,118 @@
     <!--Need to change-->
 
     <script>
-function check(){
-   
-    if(document.querySelector('#expense-list').children.length ==0){
-                document.querySelector('.no-expense').style.display ="block"
+
+        let values;
+        function check() {
+
+            if (document.querySelector('#expense-list').children.length == 0) {
+                document.querySelector('.no-expense').style.display = "block"
             }
 
-            if(document.querySelector('#income-list').children.length ==0){
-                    document.querySelector('.no-income').style.display ="block"
-                }
-    
-}
+            if (document.querySelector('#income-list').children.length == 0) {
+                document.querySelector('.no-income').style.display = "block"
+            }
 
-        
-
-        
-    function deleteItem(event){
-        event.target.parentNode.classList.add('removeItem')
-
-        setTimeout(()=>{
-            event.target.parentNode.remove()
-        },0500)
-
-      
-
-       
-            
-           
-
-        
-      
-    }
+        }
 
 
-        function changeColor(value){
-                //  console.log(value);
 
-                 var headings = Array.from(document.querySelectorAll('h3'));
-                 var closeButton = document.querySelector('.closeButton')
-                
-                 headings.forEach(cur=> 
-                 {
-                     cur.style.color=value}
-                 
-                 
-                 )
+        async function something() {
+            let data = await fetch('http://localhost:4000/income', { method: 'DELETE' })
+            let res = await data.json();
+            console.log(res);
+        }
 
-                 document.querySelector('.jumbotron').style.background=value;
-                 Array.from(document.querySelectorAll('.add-border')).forEach(cur=>cur.style.borderColor=value)
-                 Array.from(document.querySelectorAll('.cheadings')).forEach(cur=>cur.style.color=value )
 
-              
-                    closeButton.style.color=value;
-                 closeButton.style.borderColor=value;
-                       
-              
-              
+        function deleteItem(event) {
 
-               
-                 closeButton.addEventListener('mouseenter',()=>{
-                    closeButton.style.background=value;
-                    closeButton.style.color="white";
-                  
-                    
-                 })
+            event.target.parentNode.classList.add('removeItem')
+            // inc_amount.innerText
+            let mainID = event.target.parentNode.parentNode.id // income-list or expense-list
 
-                 closeButton.addEventListener('mouseleave',()=>{
-                    
-                    closeButton.style.color=value;
-                 closeButton.style.borderColor=value;
-                 closeButton.style.background="white";    
-                  
-                    
-                 })
-              
-              
-                
+            something();
+            if (mainID == 'income-list') {
+
+                let deleteValue = Array.from(event.target.parentNode.childNodes)
+                deleteValue = String(deleteValue[0].data)
+                deleteValue = deleteValue.replace("₹", "")
+                deleteValue = Number(deleteValue)
+
+                // inc_amount.innerText 
+
+                // const incomeID = document.getElementById('')
+                console.log(inc_amount.innerText)
+
+                inc_amount.innerText = inc_amount.innerText - deleteValue;
+
+
+                document.getElementById('total_budget').innerText = document.getElementById('total_budget').innerText - deleteValue;
+
+                setTimeout(() => {
+                    event.target.parentNode.remove()
+                }, 0500)
+
+            }
+            else if (mainID == 'expense-list') {
+                let deleteValue = Array.from(event.target.parentNode.childNodes)
+                deleteValue = String(deleteValue[0].data)
+                deleteValue = deleteValue.replace("₹", "")
+                deleteValue = Number(deleteValue)
+
+                // inc_amount.innerText 
+
+                // const incomeID = document.getElementById('')
+                console.log(exp_amount.innerText)
+                exp_amount.innerText = exp_amount.innerText - deleteValue;
+                let val = Number(document.getElementById('total_budget').innerText)
+
+                document.getElementById('total_budget').innerText = val + deleteValue;
+
+                setTimeout(() => {
+                    event.target.parentNode.remove()
+                }, 0500)
+            }
 
 
 
 
 
-                 
-                 
-                 document.querySelector('.close').style.color=value;
-                // document.querySelector('.label').style.color=value;
-                // Array.from(document.querySelectorAll('.spanStyle')).forEach(cur=>cur.style.color=value )
-                
-                document.querySelector('.spanStyle').style.color=value;
 
-                //  console.log(Array.from(document.querySelectorAll('.label','.spanStyle')))
-                  
-    
-                }   
+
+
+
+
+        }
+
+
+        function changeColor(value) {
+            //  console.log(value);
+
+            var headings = Array.from(document.querySelectorAll('h3'));
+            var closeButton = document.querySelector('.closeButton')
+
+            headings.forEach(cur => {
+                cur.style.color = value
+            }
+
+
+            )
+
+            document.querySelector('.jumbotron').style.background = value;
+            Array.from(document.querySelectorAll('.add-border')).forEach(cur => cur.style.borderColor = value)
+            Array.from(document.querySelectorAll('.cheadings')).forEach(cur => cur.style.color = value)
+
+
+            document.querySelector('.close').style.color = value;
+            // document.querySelector('.label').style.color=value;
+            // Array.from(document.querySelectorAll('.spanStyle')).forEach(cur=>cur.style.color=value )
+
+            document.querySelector('.spanStyle').style.color = value;
+
+            //  console.log(Array.from(document.querySelectorAll('.label','.spanStyle')))
+
+
+        }
 
         function checkSubmitButton() {
 
@@ -124,14 +143,14 @@ function check(){
             }
         }
 
-   
+
     </script>
 </head>
 
 <body class="inner-background">
 
 
-<!--The modal-->
+    <!--The modal-->
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -156,17 +175,17 @@ function check(){
     <div class="navbar navbar-default navbar-fixed-top">
         <div cl ass="container">
             <div class="navbar-header">
-                
-                    <a class="navbar-brand">
-                            Home
-                        </a>
+
+                <a class="navbar-brand">
+                    Home
+                </a>
 
                 <div class="color-icons">
-                        <span class="icon-bar custom-icon-pink" onclick="changeColor('rgb(255, 67, 83)')">Lightpink</span>
-                        <span class="icon-bar custom-icon-blue" onclick="changeColor(' #2673c8')">Blue</span>
+                    <span class="icon-bar custom-icon-pink" onclick="changeColor('rgb(255, 67, 83)')">Lightpink</span>
+                    <span class="icon-bar custom-icon-blue" onclick="changeColor(' #2673c8')">Blue</span>
                 </div>
-                
-                        
+
+
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myMenu">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -179,14 +198,14 @@ function check(){
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
                 </ul>
-                
-                
-            </div>  
-          
+
+
+            </div>
+
 
         </div>
 
-        
+
     </div>
 
 
